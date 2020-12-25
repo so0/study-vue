@@ -6,15 +6,24 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- 상위 컴포넌트 -->
     <div id="app">
+      <!-- 하위 컴포넌트 -->
       <app-header></app-header>
+      <app-content></app-content>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       // 컴포넌트 등록 방법
       // Vue.component('컴포넌트 이름', 컴포넌트 내용);
+
+      // 전역 컴포넌트
       Vue.component("app-header", {
         template: "<h1>Header</h1>", // 컴포넌트 표현. 마크업.
+      });
+
+      Vue.component("app-content", {
+        template: "<div>contents</div>",
       });
 
       // 인스턴스를 생성하면 기본으로 루트 컴포넌트가 된다.
