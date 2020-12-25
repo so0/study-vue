@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header></app-header>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var appHeader = {
+        template: '<button v-on:click="passEvent">click me</button>', // 이벤트 v-on:문법사용
+        methods: {
+          passEvent: function () {
+            this.$emit("pass"); // 이벤트 발생
+          },
+        },
+      };
+      new Vue({
+        el: "#app",
+        components: {
+          "app-header": appHeader,
+        },
+      });
+    </script>
+  </body>
+</html>
