@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 인스턴스를 붙이면 이 안에서 vue의 기능과 속성을 사용할 수 있게 됨!  -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app", // body태그 안에서 #app 을 찾아서 인스턴스를 붙이겠다.
+        data: {
+          message: "hi",
+        },
+      });
+      console.log(vm);
+    </script>
+  </body>
+</html>
