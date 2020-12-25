@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header></app-header>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // 컴포넌트 등록 방법
+      // Vue.component('컴포넌트 이름', 컴포넌트 내용);
+      Vue.component("app-header", {
+        template: "<h1>Header</h1>", // 컴포넌트 표현. 마크업.
+      });
+
+      // 인스턴스를 생성하면 기본으로 루트 컴포넌트가 된다.
+      new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>
