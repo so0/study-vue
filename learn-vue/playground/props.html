@@ -9,6 +9,7 @@
     <div id="app">
       <!-- <app-header v-bind:프롭스 속성 이름 ="상위 컴포넌트(Root)의 데이터 이름"></app-header> -->
       <app-header v-bind:propsdata="message"></app-header>
+      <app-content v-bind:propsdata="num"></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -18,14 +19,22 @@
         template: "<h1>{{ propsdata }}</h1>", // 데이터 바인딩  {{ }}
         props: ["propsdata"],
       };
+      var appContent = {
+        template: "<div>{{ propsdata }}</div>",
+        props: ["propsdata"],
+      };
+
+      // Root 컴포넌트의 data 내용이 바뀌면 하위 컴포넌트에도 반영됨
 
       new Vue({
         el: "#app",
         components: {
           "app-header": appHeader,
+          "app-content": appContent,
         },
         data: {
           message: "hi",
+          num: 10,
         },
       });
     </script>
