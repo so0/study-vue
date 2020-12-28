@@ -6,7 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <router-view></router-view>
+    </div>
     <!-- vue js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- 뷰 라우터  (순서 중요) -->
@@ -29,7 +31,7 @@
             component: LoginComponent,
           },
           {
-            path: "main",
+            path: "/main",
             component: MainComponent,
           },
         ],
