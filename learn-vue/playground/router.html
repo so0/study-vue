@@ -8,9 +8,11 @@
   <body>
     <div id="app">
       <div>
+        <!-- 페이지 이동 링크 -->
         <router-link to="/login">Login</router-link>
         <router-link to="/main">Main</router-link>
       </div>
+      <!-- 라우터에 정의한 컴포넌트가 뿌려지는 영역 -->
       <router-view></router-view>
     </div>
     <!-- vue js -->
@@ -25,8 +27,11 @@
       var MainComponent = {
         template: "<div>Main</div>",
       };
+
+      // 라우터 인스턴스 생성
       var router = new VueRouter({
-        // 페이지의 라우팅 정보.
+        mode: history, // url 에 해시 없앨 때
+        // 페이지의 라우팅 정보. 페이지의 정보들이 들어있음.
         routes: [
           {
             // 페이지의 url 이름
@@ -43,6 +48,7 @@
       });
       new Vue({
         el: "#app",
+        // 뷰 인스턴스에 라우터 인스턴스 설정
         router: router,
       });
     </script>
