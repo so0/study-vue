@@ -7,7 +7,8 @@
   </head>
   <body>
     <div id="app">
-      <p>{{num}}</p>
+      <p v-bind:id="uuid" v-bind:class="name">{{num}}</p>
+      <!--위 코드 결과 :  <p d="abc1234">{{num}}</p> -->
       <p>{{doubleNum}}</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -17,6 +18,8 @@
         el: "#app",
         data: {
           num: 10,
+          uuid: "abc1234",
+          name: "text-blue",
         },
         computed: {
           doubleNum: function () {
