@@ -10,6 +10,11 @@
       <p v-bind:id="uuid" v-bind:class="name">{{num}}</p>
       <!--위 코드 결과 :  <p d="abc1234">{{num}}</p> -->
       <p>{{doubleNum}}</p>
+
+      <!-- if 는 DOM을 제거 , show 는 display none -->
+      <div v-if="loading">Loading...</div>
+      <div v-else>test user has been logged in</div>
+      <div v-show="loading">Loading...</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -20,6 +25,7 @@
           num: 10,
           uuid: "abc1234",
           name: "text-blue",
+          loading: true,
         },
         computed: {
           doubleNum: function () {
