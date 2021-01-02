@@ -1,5 +1,5 @@
 <template>
-  <form v-on:submit="submitForm">
+  <form v-on:submit.prevent="submitForm">
     <div>
       <label for="username">id:</label>
       <!-- v-model: 2way databinding -->
@@ -22,8 +22,8 @@ export default {
     };
   },
   methods: {
-    submitForm: function(event) {
-      event.preventDefault();
+    submitForm: function() {
+      // event.preventDefault();
       console.log("submitForm");
     },
   },
