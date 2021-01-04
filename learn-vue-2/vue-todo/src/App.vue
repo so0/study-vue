@@ -2,7 +2,8 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList></TodoList>
+    <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 컴포넌트"></TodoList> -->
+    <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -28,6 +29,23 @@ import TodoFooter from "./components/TodoFooter.vue";
 // });
 
 export default {
+  data: function() {
+    return {
+      todoItems: [],
+    };
+  },
+  created: function() {
+    if (localStorage.length > 0) {
+      for (var i = 0; i < localStorage.length; i++) {
+        //console.log(localStorage.key(i));
+        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+          var item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          this.todoItems.push(item);
+          // this.todoItems.push(localStorage.key(i));
+        }
+      }
+    }
+  },
   components: {
     TodoHeader: TodoHeader,
     TodoInput: TodoInput,
