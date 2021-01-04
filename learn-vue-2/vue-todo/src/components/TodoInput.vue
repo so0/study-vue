@@ -12,7 +12,12 @@
       you can use custom content here to overwrite
       default content
     -->
-      <h3 slot="header">슬로옷</h3>
+      <h3 slot="header">
+        경고!!!
+        <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+      </h3>
+
+      <div slot="body">아무것도 입력하지 않으셨습니다.</div>
     </Modal>
   </div>
 </template>
@@ -70,5 +75,8 @@ export default {
 .addBtn {
   color: white;
   vertical-align: middle;
+}
+.closeModalBtn {
+  color: #42b983;
 }
 </style>
