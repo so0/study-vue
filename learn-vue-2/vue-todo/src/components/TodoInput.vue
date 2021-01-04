@@ -12,7 +12,7 @@
       you can use custom content here to overwrite
       default content
     -->
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">슬로옷</h3>
     </Modal>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
         this.$emit("addTodoItem", this.newTodoItem);
         this.clearInput();
       } else {
+        this.showModal = !this.showModal;
       }
     },
     clearInput: function() {
