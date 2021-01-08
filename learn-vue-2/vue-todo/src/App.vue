@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트의 메서드명"></TodoInput> -->
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
+    <TodoInput></TodoInput>
     <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 컴포넌트"></TodoList> -->
     <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
@@ -36,13 +36,6 @@ export default {
     };
   },
   methods: {
-    addOneItem(todoItem) {
-      console.log("addOneItem");
-      const obj = { completed: false, item: todoItem };
-      // 저장하는 로직
-      localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
     removeOneItem(todoItem, index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1);
@@ -59,18 +52,6 @@ export default {
       localStorage.clear();
       this.todoItems = [];
     },
-  },
-  created() {
-    if (localStorage.length > 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        //console.log(localStorage.key(i));
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          const item = JSON.parse(localStorage.getItem(localStorage.key(i)));
-          this.todoItems.push(item);
-          // this.todoItems.push(localStorage.key(i));
-        }
-      }
-    }
   },
   components: {
     TodoHeader,

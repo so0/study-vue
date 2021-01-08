@@ -21,4 +21,12 @@ export const store = new Vuex.Store({
   state: {
     todoItems: storage.fetch(),
   },
+  mutations: {
+    addOneItem(state, todoItem) {
+      const obj = { completed: false, item: todoItem };
+      // 저장하는 로직
+      localStorage.setItem(todoItem, JSON.stringify(obj));
+      state.todoItems.push(obj);
+    },
+  },
 });
