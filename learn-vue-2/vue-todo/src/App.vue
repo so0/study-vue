@@ -35,23 +35,7 @@ export default {
       todoItems: [],
     };
   },
-  methods: {
-    // removeOneItem(todoItem, index) {
-    //   localStorage.removeItem(todoItem.item);
-    //   this.todoItems.splice(index, 1);
-    // },
-    // toggleOneItem(todoItem, index) {
-    //   // todoItem.completed = !todoItem.completed;
-    //   this.todoItems[index].completed = !this.todoItems[index].completed;
-    //   // 로컬스토리지 데이터 갱신
-    //   localStorage.removeItem(todoItem.item);
-    //   localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    // },
-    // clearAllItems() {
-    //   localStorage.clear();
-    //   this.todoItems = [];
-    // },
-  },
+  methods: {},
   components: {
     TodoHeader,
     TodoInput,
