@@ -3,7 +3,7 @@
     <!-- // 1 Strongly Recommended -->
     <Toolbar></Toolbar>
     <!-- // 2 Essential -->
-    <tool-bar></tool-bar>
+    <!-- <tool-bar></tool-bar> -->
     <router-view></router-view>
   </div>
 </template>
