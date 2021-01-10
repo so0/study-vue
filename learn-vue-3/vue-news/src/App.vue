@@ -3,6 +3,7 @@
     <!-- // 1 Strongly Recommended -->
     <Toolbar></Toolbar>
     <!-- // 2 Essential -->
+    <tool-bar></tool-bar>
     <router-view></router-view>
   </div>
 </template>
@@ -17,4 +18,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+</style>
