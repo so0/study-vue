@@ -1,0 +1,8 @@
+{
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  },
+  "eslint.workingDirectories": [{ "mode": "auto" }]
+}
