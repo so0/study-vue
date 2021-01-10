@@ -10,9 +10,15 @@ const config = {
 function fetchNewsList() {
   return axios.get(`${config.baseURL}news/1.json`);
 }
+function fetchJobsList() {
+  return axios.get(`${config.baseURL}jobs/1.json`);
+}
+function fetchAskList() {
+  return axios.get(`${config.baseURL}ask/1.json`);
+}
 
 // fetchNewsList()
 //   .then()
 //   .catch();
 
-export { fetchNewsList };
+export { fetchNewsList, fetchJobsList, fetchAskList };
