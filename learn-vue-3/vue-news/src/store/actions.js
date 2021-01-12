@@ -1,11 +1,9 @@
-import { fetchNewsList, fetchAskList, fetchJobsList } from '../api/index.js';
+import { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo } from '../api/index.js';
 
 export default {
   FETCH_NEWS({ commit }) {
     fetchNewsList()
       .then(({ data }) => {
-        console.log(data);
-
         // state 변경은 mutation  을 통해야함.
         // this.state.news = response.data; // X
 
@@ -16,8 +14,6 @@ export default {
   FETCH_JOBS({ commit }) {
     fetchJobsList()
       .then(({ data }) => {
-        console.log(data);
-
         commit('SET_JOBS', data);
       })
       .catch((error) => console.log(error));
@@ -25,9 +21,14 @@ export default {
   FETCH_ASK({ commit }) {
     fetchAskList()
       .then(({ data }) => {
-        console.log(data);
-
         commit('SET_ASK', data);
+      })
+      .catch((error) => console.log(error));
+  },
+  FETCH_USER({ commit }, name) {
+    fetchUserInfo(name)
+      .then(({ data }) => {
+        commit('SET_USER', data);
       })
       .catch((error) => console.log(error));
   },
