@@ -2,12 +2,10 @@
   <div>
     <list-item></list-item>
 
-    <ul class="news-list">
+    <!-- <ul class="news-list">
       <li v-for="item in this.$store.state.jobs" class="post">
-        <!-- 포인트 영역 -->
         <div class="points">{{ item.points || 0 }}</div>
         <div>
-          <!-- 기타 정보 영역 -->
           <p class="news-title">
             <a v-bind:href="item.url">{{ item.title }}</a>
           </p>
@@ -19,7 +17,7 @@
           </small>
         </div>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -29,11 +27,11 @@ export default {
   components: {
     ListItem,
   },
-  data: function() {
-    return {
-      jobs: [],
-    };
-  },
+  // data: function() {
+  //   return {
+  //     jobs: [],
+  //   };
+  // },
   // 라이프사이클 훅.
   // created() {
   //   this.$store.dispatch('FETCH_JOBS');
