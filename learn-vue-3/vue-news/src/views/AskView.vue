@@ -1,28 +1,6 @@
 <template>
   <div>
     <list-item actionName="FETCH_ASK"></list-item>
-    <!-- <ul class="news-list">
-      <li v-for="item in fetchedAsk" class="post">
-        <div class="points">{{ item.points }}</div>
-
-        <div>
-          <p class="news-title">
-            <router-link :to="`/item/${item.id}`"> {{ item.title }}</router-link>
-          </p>
-          <small class="link-test"
-            >{{ item.time_ago }} by
-            <router-link v-bind:to="`/user/${item.user}`" class="link-test">
-              {{ item.user }}
-            </router-link>
-          </small>
-        </div>
-      </li>
-    </ul>
-
-    <p v-for="item in fetchedAsk">
-      <router-link :to="`/item/${item.id}`"> {{ item.title }}</router-link>
-      <small>{{ item.time_ago }} by {{ item.user }}</small>
-    </p> -->
   </div>
 </template>
 

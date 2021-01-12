@@ -4,16 +4,26 @@
       <li v-for="item in listItems" class="post">
         <!-- 포인트 영역 -->
         <div class="points">{{ item.points || 0 }}</div>
+        <!-- 기타 정보 영역 -->
         <div>
-          <!-- 기타 정보 영역 -->
+          <!-- 타이틀 영역 -->
           <p class="news-title">
-            <a v-bind:href="item.url">{{ item.title }}</a>
+            <template v-if="item.domain">
+              <a v-bind:href="item.url">{{ item.title }}</a>
+            </template>
+            <template v-else>
+              <router-link :to="`/item/${item.id}`"> {{ item.title }}</router-link>
+            </template>
           </p>
           <small class="link-test"
             >{{ item.time_ago }} by
-            <router-link v-bind:to="`/user/${item.user}`" class="link-test">
+
+            <router-link v-if="item.user" v-bind:to="`/user/${item.user}`" class="link-test">
               {{ item.user }}
             </router-link>
+            <a v-else :href="item.url">
+              {{ item.domain }}
+            </a>
           </small>
         </div>
       </li>
@@ -43,6 +53,8 @@ export default {
         return this.$store.state.ask;
       } else if (name === 'jobs') {
         return this.$store.state.jobs;
+      } else {
+        return '';
       }
     },
   },
