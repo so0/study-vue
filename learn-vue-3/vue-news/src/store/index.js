@@ -10,45 +10,50 @@ export const store = new Vuex.Store({
     ask: [],
     jobs: [],
   },
+  getters: {
+    fetchedAsk(state) {
+      return state.ask;
+    },
+  },
   mutations: {
     SET_NEWS(state, data) {
       state.news = data;
     },
-    SET_ASK(state, data) {
-      state.ask = data;
-    },
     SET_JOBS(state, data) {
       state.jobs = data;
     },
+    SET_ASK(state, data) {
+      state.ask = data;
+    },
   },
   actions: {
-    FETCH_NEWS(context) {
+    FETCH_NEWS({ commit }) {
       fetchNewsList()
-        .then((response) => {
-          console.log(response.data);
+        .then(({ data }) => {
+          console.log(data);
 
           // state 변경은 mutation  을 통해야함.
           // this.state.news = response.data; // X
 
-          context.commit('SET_NEWS', response.data);
+          commit('SET_NEWS', data);
         })
         .catch((error) => console.log(error));
     },
-    FETCH_ASK(context) {
-      fetchAskList()
-        .then((response) => {
-          console.log(response.data);
-
-          context.commit('SET_ASK', response.data);
-        })
-        .catch((error) => console.log(error));
-    },
-    FETCH_JOBS(context) {
+    FETCH_JOBS({ commit }) {
       fetchJobsList()
-        .then((response) => {
-          console.log(response.data);
+        .then(({ data }) => {
+          console.log(data);
 
-          context.commit('SET_JOBS', response.data);
+          commit('SET_JOBS', data);
+        })
+        .catch((error) => console.log(error));
+    },
+    FETCH_ASK({ commit }) {
+      fetchAskList()
+        .then(({ data }) => {
+          console.log(data);
+
+          commit('SET_ASK', data);
         })
         .catch((error) => console.log(error));
     },
