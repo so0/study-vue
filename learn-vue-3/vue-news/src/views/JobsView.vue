@@ -1,5 +1,7 @@
 <template>
   <div>
+    <list-item></list-item>
+
     <ul class="news-list">
       <li v-for="item in this.$store.state.jobs" class="post">
         <!-- 포인트 영역 -->
@@ -22,16 +24,20 @@
 </template>
 
 <script>
+import ListItem from '../components/ListItem.vue';
 export default {
+  components: {
+    ListItem,
+  },
   data: function() {
     return {
       jobs: [],
     };
   },
   // 라이프사이클 훅.
-  created() {
-    this.$store.dispatch('FETCH_JOBS');
-  },
+  // created() {
+  //   this.$store.dispatch('FETCH_JOBS');
+  // },
   // create, beforeMount : 데이터 요청 많이 함.
 };
 </script>
