@@ -20,6 +20,7 @@
     </section>
     <section>
       <div v-html="fetchedItem.content"></div>
+      <hr />
       <div v-for="cmt in fetchedItem.comments">
         <div v-html="cmt.content"></div>
       </div>
