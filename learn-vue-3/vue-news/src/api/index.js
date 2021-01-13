@@ -7,6 +7,11 @@ const config = {
 };
 
 // 2. API 함수들을 정리
+// 공통 함수
+function fetchList(name) {
+  return axios.get(`${config.baseURL}${name}/1.json`);
+}
+
 function fetchNewsList() {
   return axios.get(`${config.baseURL}news/1.json`);
 }
@@ -23,8 +28,4 @@ function fetchCommentItem(id) {
   return axios.get(`${config.baseURL}item/${id}.json`);
 }
 
-// fetchNewsList()
-//   .then()
-//   .catch();
-
-export { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchCommentItem };
+export { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchCommentItem, fetchList };
