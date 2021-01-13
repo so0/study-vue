@@ -7,15 +7,19 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
+    <spinner :loading="true" />
   </div>
 </template>
 
 <script>
 import Toolbar from './components/ToolBar.vue';
+import Spinner from './components/Spinner.vue';
+
 export default {
   name: 'App',
   components: {
     Toolbar,
+    Spinner,
   },
 };
 </script>
