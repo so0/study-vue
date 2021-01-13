@@ -8,6 +8,7 @@ export default {
         // this.state.news = response.data; // X
 
         commit('SET_NEWS', data);
+        return data;
       })
       .catch((error) => console.log(error));
   },
