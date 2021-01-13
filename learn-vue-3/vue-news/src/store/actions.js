@@ -41,9 +41,10 @@ export default {
       .catch((error) => console.log(error));
   },
   FETCH_LIST({ commit }, pageName) {
-    fetchList(pageName)
+    return fetchList(pageName)
       .then(({ data }) => {
         commit('SET_LIST', data);
+        return data;
       })
       .catch((error) => console.log(error));
   },
