@@ -13,6 +13,9 @@ export default {
     ListItem,
   },
   mixins: [ListMixin],
+  // created() {
+
+  // }
 };
 </script>
 

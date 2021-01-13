@@ -14,6 +14,10 @@ export default {
     ListItem,
   },
   mixins: [ListMixin],
+  // mounted() {
+  //   // 인스턴스가 화면에 나타났을 때
+  //   bus.$emit('end:spinner');
+  // },
 
   // created() {
   //   bus.$emit('start:spinner');
