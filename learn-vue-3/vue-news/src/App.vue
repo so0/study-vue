@@ -7,19 +7,43 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <spinner :loading="true" />
+    <spinner :loading="loadingStatus" />
   </div>
 </template>
 
 <script>
 import Toolbar from './components/ToolBar.vue';
 import Spinner from './components/Spinner.vue';
+import bus from './utils/bus.js';
 
 export default {
   name: 'App',
   components: {
     Toolbar,
     Spinner,
+  },
+  data() {
+    return {
+      loadingStatus: false,
+    };
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+    },
+  },
+  created() {
+    // addEventListener 같은 역할
+    bus.$on('start:spinner', this.startSpinner);
+    bus.$on('end:spinner', this.endSpinner);
+  },
+  beforeDestroy() {
+    // off 꼭 해주기.
+    bus.$off('start:spinner');
+    bus.$off('end:spinner');
   },
 };
 </script>
