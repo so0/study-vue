@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="barChart" width="400" height="400"></canvas>
+    <canvas ref="barChart" id="barChart" width="400" height="400"></canvas>
   </div>
 </template>
 
@@ -9,7 +9,9 @@ import Chart from 'chart.js';
 
 export default {
   mounted() {
-    var ctx = document.getElementById('barChart');
+    // var ctx = document.getElementById('barChart');
+    var ctx = this.$refs.barChart;
+
     var barChart = new Chart(ctx, {
       type: 'bar',
       data: {
