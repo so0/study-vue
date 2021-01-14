@@ -5,13 +5,11 @@
 </template>
 
 <script>
-import Chart from 'chart.js';
-
 export default {
   mounted() {
     // var ctx = document.getElementById('lineChart');
     var ctx = this.$refs.lineChart;
-    var lineChart = new Chart(ctx, {
+    var lineChart = new this.$_Chart(ctx, {
       type: 'line',
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr'],
