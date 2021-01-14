@@ -1,6 +1,7 @@
 import { fetchList, fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchCommentItem } from '../api/index.js';
 
 export default {
+  // promise
   FETCH_NEWS({ commit }) {
     fetchNewsList()
       .then(({ data }) => {
@@ -11,6 +12,13 @@ export default {
         return data;
       })
       .catch((error) => console.log(error));
+  },
+  // async
+  async FETCH_NEWS({ commit }) {
+    const response = await fetchNewsList();
+    commit('SET_NEWS', response.data);
+    // async 함수의 리턴 -> 프로미스가 리턴됨
+    return response; // 결과 값 반환 해주어야함
   },
   FETCH_JOBS({ commit }) {
     fetchJobsList()
