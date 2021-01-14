@@ -18,8 +18,16 @@ function fetchNewsList() {
 function fetchJobsList() {
   return axios.get(`${config.baseURL}jobs/1.json`);
 }
-function fetchAskList() {
-  return axios.get(`${config.baseURL}ask/1.json`);
+async function fetchAskList() {
+  try {
+    return axios.get(`${config.baseURL}ask/1.json`);
+
+    // 이렇게도 할수있음
+    // const response = axios.get(`${config.baseURL}ask/1.json`);
+    // return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 function fetchUserInfo(username) {
   return axios.get(`${config.baseURL}user/${username}.json`);

@@ -2,17 +2,17 @@ import { fetchList, fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, f
 
 export default {
   // promise
-  FETCH_NEWS({ commit }) {
-    fetchNewsList()
-      .then(({ data }) => {
-        // state 변경은 mutation  을 통해야함.
-        // this.state.news = response.data; // X
+  // FETCH_NEWS({ commit }) {
+  //   fetchNewsList()
+  //     .then(({ data }) => {
+  //       // state 변경은 mutation  을 통해야함.
+  //       // this.state.news = response.data; // X
 
-        commit('SET_NEWS', data);
-        return data;
-      })
-      .catch((error) => console.log(error));
-  },
+  //       commit('SET_NEWS', data);
+  //       return data;
+  //     })
+  //     .catch((error) => console.log(error));
+  // },
   // async
   async FETCH_NEWS({ commit }) {
     const response = await fetchNewsList();
@@ -20,40 +20,33 @@ export default {
     // async 함수의 리턴 -> 프로미스가 리턴됨
     return response; // 결과 값 반환 해주어야함
   },
-  FETCH_JOBS({ commit }) {
-    fetchJobsList()
-      .then(({ data }) => {
-        commit('SET_JOBS', data);
-      })
-      .catch((error) => console.log(error));
+  async FETCH_JOBS({ commit }) {
+    try {
+      const response = await fetchJobsList();
+      commit('SET_JOBS', response.data);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   },
-  FETCH_ASK({ commit }) {
-    fetchAskList()
-      .then(({ data }) => {
-        commit('SET_ASK', data);
-      })
-      .catch((error) => console.log(error));
+  async FETCH_ASK({ commit }) {
+    const response = await fetchAskList();
+    commit('SET_ASK', response.ata);
+    return response;
   },
-  FETCH_USER({ commit }, name) {
-    fetchUserInfo(name)
-      .then(({ data }) => {
-        commit('SET_USER', data);
-      })
-      .catch((error) => console.log(error));
+  async FETCH_USER({ commit }, name) {
+    const response = await fetchUserInfo(name);
+    commit('SET_USER', response.data);
+    return response;
   },
-  FETCH_ITEM({ commit }, id) {
-    fetchCommentItem(id)
-      .then(({ data }) => {
-        commit('SET_ITEM', data);
-      })
-      .catch((error) => console.log(error));
+  async FETCH_ITEM({ commit }, id) {
+    const response = await fetchCommentItem(id);
+    commit('SET_ITEM', response.data);
+    return response;
   },
-  FETCH_LIST({ commit }, pageName) {
-    return fetchList(pageName)
-      .then(({ data }) => {
-        commit('SET_LIST', data);
-        return data;
-      })
-      .catch((error) => console.log(error));
+  async FETCH_LIST({ commit }, pageName) {
+    const response = await fetchList(pageName);
+    commit('SET_LIST', response.data);
+    return response;
   },
 };
