@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    title: String,
+    title: String, // props validation 문법
   }
 }
 </script>
