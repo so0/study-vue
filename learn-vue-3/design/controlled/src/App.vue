@@ -1,4 +1,5 @@
 <template>
+ <!-- 잘못된 방법 -->
   <check-box :checked="checked"></check-box>
 </template>
 
