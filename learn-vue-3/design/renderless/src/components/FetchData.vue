@@ -17,9 +17,9 @@ export default {
       })
       .catch(error => {
         alert('[ERROR] fetching the data', error);
-        console.log(error);
       });
   },
+  // render function 
   render() {
     return this.$scopedSlots.default({
       response: this.response,
